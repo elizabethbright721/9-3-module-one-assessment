@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,18 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let movieArr = []; //return an array if empty
+  
+  
+  for (let movie of movies) {
+    if (movie !==0) {
+      movieArr.push(movie.title)
+    } 
+        
+  }
+   return movieArr;
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +53,17 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highestMeta = 0;
+
+  for (let movie of movies) {
+    let metaScore = Number(movie.metascore);
+    if (metaScore > highestMeta) {
+    highestMeta = metaScore;
+    }
+  }
+  return highestMeta;
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +76,18 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+
+let highestRating = 0;
+
+for (let movie of movies) {
+  let movieRating = Number(movie.imdbRating)
+  if (movieRating > 0) {
+    highestRating = movieRating;
+  }
+}
+  return highestRating;
+}
 
 /**
  * countByRating()
@@ -67,7 +100,19 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let obj = {};
+
+  for (let i = 0; i < movies.length; i++) {
+    if (!obj[movies[i].rated]) {
+      obj[movies[i].rated] = 1;
+    }else {
+      obj[arr[i].rated]++;
+    }  
+    }
+     
+  return obj;
+}
 
 /**
  * findById()
